@@ -1,0 +1,53 @@
+<nz-modal [(nzVisible)]="modalVisible" class="custom-modal"  (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()">
+  <ng-container *nzModalContent>
+  <span class="custom-close-button" (click)="modalVisible = false">&#10006;</span>
+  <div class="form-content">
+    <nz-form-item>
+      <nz-form-label>Дата регистрации</nz-form-label>
+      <nz-form-control>
+        <input nz-input type="date"/>
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-label>ФИО</nz-form-label>
+      <nz-form-control>
+        <input nz-input placeholder="" type="text">
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-label>Должность</nz-form-label>
+      <nz-form-control>
+        <nz-select placeholder="Введите должность">
+          <nz-option *ngFor="let option of positionOptions" [nzValue]="option">{{ option }}</nz-option>
+        </nz-select>
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-label>Почта (Логин)</nz-form-label>
+      <nz-form-control>
+        <input nz-input placeholder="" type="text">
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-label>Пароль</nz-form-label>
+      <nz-form-control>
+        <input nz-input type="password">
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-label>Телефон, привязанный к мессенджеру</nz-form-label>
+      <nz-form-control>
+        <nz-select placeholder="Напишите номер">
+          <nz-option *ngFor="let option of phoneOptions" [nzValue]="option">{{ option }}</nz-option>
+        </nz-select>
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-control>
+        <button nz-button nzType="primary" (click)="saveData()">Save</button>
+      </nz-form-control>
+    </nz-form-item>
+  </div>
+  </ng-container>
+</nz-modal>
+
